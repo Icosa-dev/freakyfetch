@@ -15,10 +15,10 @@ cd freakyfetch
 make 
 
 # to install freakyfetch 
-make install 
+sudo make install 
 
 # to remove freakyfetch 
-make remove 
+sudo make remove 
 
 # to clean up build remains
 make clean
