@@ -1,20 +1,26 @@
 CC=gcc
-OUTPUT_DIR=freakyfetch
-PRIMARY_TARGETS=$(OUTPUT_DIR)/main $(OUTPUT_DIR)/$(FREAKY_FILE)
+BUILD_DIR=build
+PRIMARY_TARGETS=$(BUILD_DIR)/$(FREAKY_EXECUTABLE) $(BUILD_DIR)/$(FREAKY_IMAGE)
 SOURCE_DIR=src
-FREAKY_FILE=freaky.png
+FREAKY_IMAGE=freaky.png
 FREAKY_EXECUTABLE=freakyfetch
 
-all: $(OUTPUT_DIR) $(PRIMARY_TARGETS)
+all: $(BUILD_DIR) $(PRIMARY_TARGETS)
 
-install: $(OUTPUT_DIR)/main
-	cp $(OUTPUT_DIR)/* /usr/local/bin
+install: $(BUILD_DIR)
+	cp $(BUILD_DIR)/* /usr/local/bin
 
-$(OUTPUT_DIR):
-	mkdir -p $(OUTPUT_DIR)
+remove: /usr/local/bin/$(FREAKY_EXECUTABLE) /usr/local/bin/$(FREAKY_IMAGE)
+	rm /usr/local/bin/$(FREAKY_EXECUTABLE) /usr/local/bin/$(FREAKY_IMAGE)
 
-$(OUTPUT_DIR)/freakyfetch: $(SOURCE_DIR)/main.c | $(OUTPUT_DIR)
-	$(CC) $(SOURCE_DIR)/main.c -o $(OUTPUT_DIR)/$(FREAKY_EXECUTABLE)
+clean: $(BUILD_DIR)
+	rm -rf $(BUILD_DIR)
 
-$(OUTPUT_DIR)/$(FREAKY_FILE): $(SOURCE_DIR)/$(FREAKY_FILE) | $(OUTPUT_DIR)
-	cp $(SOURCE_DIR)/$(FREAKY_FILE) $(OUTPUT_DIR)
+$(BUILD_DIR):
+	mkdir -p $(BUILD_DIR)
+
+$(BUILD_DIR)/$(FREAKY_EXECUTABLE): $(SOURCE_DIR)/main.c | $(BUILD_DIR)
+	$(CC) $(SOURCE_DIR)/main.c -o $(BUILD_DIR)/$(FREAKY_EXECUTABLE)
+
+$(BUILD_DIR)/$(FREAKY_IMAGE): $(SOURCE_DIR)/$(FREAKY_IMAGE) | $(BUILD_DIR)
+	cp $(SOURCE_DIR)/$(FREAKY_IMAGE) $(BUILD_DIR)

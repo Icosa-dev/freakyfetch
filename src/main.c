@@ -7,7 +7,7 @@
 #define RESET_TO_PINK ANSI_RESET ANSI_PINK
 
 int main() {
-  system("chafa freaky.png");
+  system("chafa /usr/local/bin/freaky.png");
   puts(ANSI_PINK"╭──────────👅" ANSI_BOLD "FREAKY" ANSI_RESET ANSI_PINK"👅──────────╮  ");
   puts(" " ANSI_BOLD "OS"       RESET_TO_PINK":       👅Freakbuntu👅         ");
   puts(" " ANSI_BOLD "Host"     RESET_TO_PINK":     👅FreakyServer👅         ");
