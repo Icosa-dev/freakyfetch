@@ -8,6 +8,7 @@ freakyfetch
 ```
 
 ## Build from source
+
 To use freakyfetch you will need to build it from source.
 ```
 git clone https://github.com/H4drian/freakyfetch.git 
