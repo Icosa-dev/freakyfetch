@@ -40,11 +40,11 @@ sudo make uninstall
 #### Available Make targets
 
 ```shell
-make build              # builds uwufetch and libfetch
+make build              # builds freakyfetch and libfetch
 make lib                # builds only libfetch
 make debug              # use for debug
-make install            # installs uwufetch (needs root permissons)
-make uninstall          # uninstalls uwufetch (needs root permissons)
+make install            # installs freakyfetch (needs root permissons)
+make uninstall          # uninstalls freakyfetch (needs root permissons)
 make clean              # removes all build output
 make man                # compiles man page
 make man_debug          # compiles man page and shows 'man' output
