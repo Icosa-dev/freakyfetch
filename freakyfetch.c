@@ -189,10 +189,10 @@ int print_image(struct info* user_info) {
 #ifndef __IPHONE__
   char command[256];
   if (strlen(user_info->image_name) < 1) {
-    char* repl_str = strcmp(user_info->os_name, "android") == 0 ? "/data/data/com.termux/files/usr/lib/freakyfetch/%s.png"
-                     : strcmp(user_info->os_name, "macos") == 0 ? "/usr/local/lib/freakyfetch/%s.png"
-                                                                : "/usr/lib/freakyfetch/%s.png";
-    sprintf(user_info->image_name, repl_str, user_info->os_name); // image command for android
+    char* repl_str = strcmp(user_info->os_name, "android") == 0 ? "/data/data/com.termux/files/usr/lib/freakyfetch/freaky.png"
+                     : strcmp(user_info->os_name, "macos") == 0 ? "/usr/local/lib/freakyfetch/freaky.png"
+                                                                : "/usr/lib/freakyfetch/freaky.png";
+    sprintf(user_info->image_name, repl_str); // image command for android
     LOG_V(user_info->image_name);
   }
   sprintf(command, "viu -t -w 18 -h 9 %s 2> /dev/null", user_info->image_name); // creating the command to show the image
@@ -562,7 +562,7 @@ void write_cache(struct info* user_info) {
 int read_cache(struct info* user_info) {
   LOG_I("reading cache");
   char cache_file[512];
-  sprintf(cache_file, "%s/.cache/uwufetch.cache", getenv("HOME")); // cache file location
+  sprintf(cache_file, "%s/.cache/freakyfetch.cache", getenv("HOME")); // cache file location
   LOG_V(cache_file);
   FILE* cache_fp = fopen(cache_file, "r");
   if (cache_fp == NULL) return 0;
@@ -603,16 +603,16 @@ int print_ascii(struct info* user_info) {
   FILE* file;
   char ascii_file[1024];
   // First tries to get ascii art file from local directory. Useful for debugging
-  sprintf(ascii_file, "./res/ascii/%s.txt", user_info->os_name);
+  sprintf(ascii_file, "./res/ascii/freaky.txt");
   LOG_V(ascii_file);
   file = fopen(ascii_file, "r");
   if (!file) { // if the file does not exist in the local directory, open it from the installation directory
     if (strcmp(user_info->os_name, "android") == 0)
-      sprintf(ascii_file, "/data/data/com.termux/files/usr/lib/freakyfetch/ascii/%s.txt", user_info->os_name);
+      sprintf(ascii_file, "/data/data/com.termux/files/usr/lib/freakyfetch/ascii/freaky.txt");
     else if (strcmp(user_info->os_name, "macos") == 0)
-      sprintf(ascii_file, "/usr/local/lib/freakyfetch/ascii/%s.txt", user_info->os_name);
+      sprintf(ascii_file, "/usr/local/lib/freakyfetch/ascii/freaky.txt");
     else
-      sprintf(ascii_file, "/usr/lib/freakyfetch/ascii/%s.txt", user_info->os_name);
+      sprintf(ascii_file, "/usr/lib/freakyfetch/ascii/freaky.txt");
     LOG_V(ascii_file);
 
     file = fopen(ascii_file, "r");
@@ -673,7 +673,6 @@ void usage(char* arg) {
   LOG_I("printing usage");
   printf("Usage: %s <args>\n"
          "    -c  --config        use custom config path\n"
-         "    -d, --distro        lets you choose the logo to print\n"
          "    -h, --help          prints this help page\n"
 #ifndef __IPHONE__
          "    -i, --image         prints logo as image and use a custom image "
