@@ -113,7 +113,7 @@ install: build man
 
 uninstall:
 	rm -f $(DESTDIR)/$(PREFIX)/$(NAME)
-	rm -rf $(DESTDIR)/$(LIBDIR)/uwufetch
+	rm -rf $(DESTDIR)/$(LIBDIR)/freakyfetch
 	rm -f $(DESTDIR)/$(LIBDIR)/lib$(LIB_FILES:.c=.so)
 	rm -f $(DESTDIR)/include/$(LIB_FILES:.c=.h)
 	rm -rf $(ETC_DIR)/freakyfetch
