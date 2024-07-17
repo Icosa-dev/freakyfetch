@@ -24,8 +24,8 @@ a fork of uwufetch that aims to make your OS more 𝓯𝓻𝓮𝓪𝓴𝔂.
 To install Freakyfetch from the source, type these commands in the terminal:
 
 ```shell
-git clone https://github.com/H4drian/Freakyfetch
-cd Freakyfetch
+git clone https://github.com/H4drian/freakyfetch
+cd freakyfetch
 make build # add "CFLAGS+=-D__IPHONE__" if you are building for iOS
 sudo make install
 ```
@@ -33,7 +33,7 @@ sudo make install
 To uninstall:
 
 ```shell
-cd Freakyfetch
+cd freakyfetch
 sudo make uninstall
 ```
 
