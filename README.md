@@ -19,6 +19,14 @@ a fork of uwufetch that aims to make your OS more 𝓯𝓻𝓮𝓪𝓴𝔂.
 
 - [lshw](https://github.com/lyonel/lshw) (optional) for better accuracy on GPU info.
 
+### From the AUR
+
+To install Freakyfetch from the AUR do:
+
+```shell
+yay -S freakyfetch
+```
+
 ### Building from source
 
 To install Freakyfetch from the source, type these commands in the terminal:
