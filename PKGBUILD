@@ -1,6 +1,6 @@
 # Maintainer: someStranger8 <someStranger87@gmail.com>
-pkgname=('freakyfetch-git')
-pkgver=1
+pkgname=('freakyfetch')
+pkgver=r34.f64409f
 pkgrel=1
 pkgdesc="Finally, a fetch that can match my freak!"
 arch=('x86_64')
@@ -12,7 +12,7 @@ provides=("${pkgname%-VCS}")
 conflicts=("${pkgname%-VCS}")
 options=()
 install=
-source=('freakyfetch::git://github.com/icosa-dev/freakyfetch')
+source=('git+https://github.com/icosa-dev/freakyfetch.git')
 sha256sums=('SKIP')
 
 # Please refer to the 'USING VCS SOURCES' section of the PKGBUILD man page for
@@ -32,5 +32,5 @@ build() {
 
 package() {
 	cd "$srcdir/${pkgname%-VCS}"
-	make install
+	sudo make install
 }
